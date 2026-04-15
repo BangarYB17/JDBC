@@ -15,7 +15,7 @@ public class CallableFactorial {
 			
 		    CallableStatement cs = con.prepareCall("{call cal_factorial(?,?)}");
 		    
-		    cs.setInt(1, 5);
+		    cs.setInt(1, 4);
 		    
 		    cs.registerOutParameter(2, Types.INTEGER);
 		    
