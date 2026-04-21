@@ -5,11 +5,8 @@ import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.Types;
 
-public class ImgStoreDemo {
+public class PdfStoreDemo {
 
 	public static void main(String[] args) {
 		try {
@@ -17,10 +14,10 @@ public class ImgStoreDemo {
 			
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javadb","root","root");
 			
-			PreparedStatement ps = con.prepareStatement("insert into imgtable(name,profile_pic)values(?,?)");
+			PreparedStatement ps = con.prepareStatement("insert into pdf_store(name,file)values(?,?)");
 			ps.setString(1, "User");
 		    
-			FileInputStream input = new FileInputStream(new  File("C:\\jdbcimg\\worker.png"));
+			FileInputStream input = new FileInputStream(new  File("C:\\jdbcimg\\user.pdf"));
 			ps.setBlob(2, input);
 			
 			int rs = ps.executeUpdate();
